@@ -1,0 +1,11 @@
+export class QueryParameter {
+  key: string;
+  value: string;
+  constructor(key: string, value: string) {
+    this.key = key;
+    this.value = value;
+  }
+  getFormedString() {
+    return this.key + '=' + this.value + '&';
+  }
+}

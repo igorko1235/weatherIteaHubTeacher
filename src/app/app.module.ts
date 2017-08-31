@@ -6,6 +6,8 @@ import { CitiesComponent } from './cities/cities.component';
 import { CityComponent } from './cities/city/city.component';
 import { FormsModule } from '@angular/forms';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { DataService } from './services/data.service';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,9 +18,12 @@ import { AutocompleteComponent } from './autocomplete/autocomplete.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
