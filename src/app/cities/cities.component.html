@@ -1,0 +1,5 @@
+<h1>Cities list</h1>
+<app-city *ngFor="let city of typedArray; let index = index"
+          (cityDeleted)="catchDeleting($event)"
+          [index]="index"
+          [city]="city"></app-city>
