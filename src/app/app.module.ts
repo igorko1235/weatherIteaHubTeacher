@@ -7,14 +7,20 @@ import { CityComponent } from './cities/city/city.component';
 import { FormsModule } from '@angular/forms';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { DataService } from './services/data.service';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
+import { MyhiddenDirective } from './directives/myhidden.directive';
+import { MyNgIfDirective } from './directives/my-ng-if.directive';
+import { DelayDirective } from './directives/delay.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CitiesComponent,
     CityComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    MyhiddenDirective,
+    MyNgIfDirective,
+    DelayDirective
   ],
   imports: [
     BrowserModule,

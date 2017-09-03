@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from './services/data.service';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../environments/environment";
 import {QueryParameter} from "./models/query-parameter";
 
 @Component({
@@ -11,18 +9,22 @@ import {QueryParameter} from "./models/query-parameter";
 })
 export class AppComponent implements OnInit {
   title = 'app';
+  hideTitle = false;
   get dataFromService() {
     return this.dataService.data;
   }
-  constructor(private dataService: DataService, private http: HttpClient) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.getDataFromServer();
-    const idObject = new QueryParameter('id', '524901');
-    console.log(this.dataService.formApiString([idObject]));
+  }
+  toggle() {
+    this.hideTitle = !this.hideTitle;
   }
   private getDataFromServer() {
-   // this.http.get()
-    console.log(environment);
+    const idObject = new QueryParameter('id', '524901');
+    // this.dataService.makeRequestToServer(idObject).subscribe(request => {
+    //   console.log(request);
+    // });
   }
 }
