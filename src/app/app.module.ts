@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyhiddenDirective } from './directives/myhidden.directive';
 import { MyNgIfDirective } from './directives/my-ng-if.directive';
 import { DelayDirective } from './directives/delay.directive';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DelayDirective } from './directives/delay.directive';
     AutocompleteComponent,
     MyhiddenDirective,
     MyNgIfDirective,
-    DelayDirective
+    DelayDirective,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

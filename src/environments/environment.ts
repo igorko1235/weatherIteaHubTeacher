@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   BASE_API_URL: 'http://samples.openweathermap.org/data/2.5/weather?',
-  BASE_API_KEY: 'appid=e26eeabca9e39433929248234b6a16e6'
+  BASE_API_KEY: 'e26eeabca9e39433929248234b6a16e6',
+  BASE_API_UNITS: 'metric'
 };

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from './services/data.service';
-import {QueryParameter} from "./models/query-parameter";
 
 @Component({
   selector: 'app-root',
@@ -16,15 +15,8 @@ export class AppComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.getDataFromServer();
   }
   toggle() {
     this.hideTitle = !this.hideTitle;
-  }
-  private getDataFromServer() {
-    const idObject = new QueryParameter('id', '524901');
-    // this.dataService.makeRequestToServer(idObject).subscribe(request => {
-    //   console.log(request);
-    // });
   }
 }
