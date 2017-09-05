@@ -1,3 +1,8 @@
 <header>
-  Header works
+  <div class="city" *ngIf="!isLoading">Current city: {{request?.name}}</div>
+  <div class="city" *ngIf="isLoading">Loading...</div>
+  <img src="{{env.GET_IMAGE_URL(request?.weather[0].icon)}}" alt="">
+  <img [src]="env.GET_IMAGE_URL(request?.weather[0].icon)" [alt]="env.GET_IMAGE_URL(request?.weather[0].icon)">
+  <input type="text" title="search">
+  <button (click)="search()">Search</button>
 </header>

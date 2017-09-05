@@ -6,6 +6,10 @@
 export const environment = {
   production: false,
   BASE_API_URL: 'http://samples.openweathermap.org/data/2.5/weather?',
+  BASE_SEARCH_URL: 'http://samples.openweathermap.org/data/2.5/find?',
+  GET_IMAGE_URL: (id: string) => {
+    return 'http://openweathermap.org/img/w/' + id + '.png';
+  },
   BASE_API_KEY: 'e26eeabca9e39433929248234b6a16e6',
   BASE_API_UNITS: 'metric'
 };

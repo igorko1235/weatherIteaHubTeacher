@@ -10,23 +10,14 @@ import {environment} from "../../environments/environment";
   providers: [DataService]
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private dataService: DataService, private http: HttpClient) { }
+  public request: any;
+  public isLoading = false;
+  public env: any;
+  constructor(private dataService: DataService, private http: HttpClient) {
+    this.env = environment;
+  }
 
   ngOnInit() {
-    console.log(this);
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(this => {
-    //     // const request = new HttpParams()
-    //     //   .set('lon', position.coords.longitude.toString())
-    //     //   .set('lat', position.coords.latitude.toString());
-    //     // this.dataService.makeRequestToServer(request).subscribe(request => {
-    //     //   console.log(request);
-    //     // });
-    //   });
-    // } else {
-    //   alert('Geolocation is not supported by this browser.');
-    // }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition( positions => {
         this.handlePosition(positions);
@@ -35,14 +26,25 @@ export class HeaderComponent implements OnInit {
       alert('Geolocation is not supported by this browser.');
     }
   }
-  handlePosition(position: Position) {
-    console.log(position);
-    const request = new HttpParams()
-      .set('appid', environment.BASE_API_KEY)
-      .set('lat', position.coords.latitude.toString())
-      .set('lon', position.coords.longitude.toString());
-    this.http.get(environment.BASE_API_URL, {params: request}).subscribe( request => {
+  search() {
+    // const request = new HttpParams()
+    //   .set('appid', environment.BASE_API_KEY)
+    //   .set('q', 'London')
+    //   .set('type', 'like');
+    this.http.get('http://samples.openweathermap.org/data/2.5/find?q=Lv&appid=b1b15e88fa797225412429c1c50c122a1').subscribe( request => {
       console.log(request);
     });
+  }
+  handlePosition(position: Position) {
+    // this.isLoading = true;
+    // const request = new HttpParams()
+    //   .set('appid', environment.BASE_API_KEY)
+    //   .set('lat', Math.round(position.coords.latitude).toString())
+    //   .set('lon', Math.round(position.coords.longitude).toString());
+    // this.http.get(environment.BASE_API_URL, {params: request}).subscribe( request => {
+    //   this.request = request;
+    //   console.log(this.request);
+    //   this.isLoading = false;
+    // });
   }
 }
