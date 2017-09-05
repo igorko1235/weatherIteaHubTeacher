@@ -9,10 +9,6 @@ import 'rxjs/add/operator/repeat';
 export class DataService {
   data = 'My data from service';
   private readonly GET_DIVIDER = '&';
-  private readonly DEFAULT_PARAMETERS = [
-    'appid', environment.BASE_API_KEY,
-    'units', environment.BASE_API_UNITS,
-  ];
   public listenMessage = new Subject <string>();
   constructor(private http: HttpClient) {
   }

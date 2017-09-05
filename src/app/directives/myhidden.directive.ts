@@ -8,6 +8,7 @@ import {
   selector: '[appMyhidden]',
 })
 export class MyhiddenDirective implements OnInit, OnChanges {
+  @Input() appMyhidden = false;
   private currentDisplay = 'block';
   private currentColor = 'red';
   @HostBinding('style.display') get displayBinding() {
@@ -22,21 +23,26 @@ export class MyhiddenDirective implements OnInit, OnChanges {
   @HostListener('mouseleave') onMouseLeave() {
     this.currentColor = 'red';
   }
-  @Input() appMyhidden = false;
+  @HostListener('click') onClick() {
+    alert(this.currentColor);
+  }
   constructor(private element: ElementRef, private renderer: Renderer2) {}
   ngOnInit() {
+    console.log(this.element);
     this.toggleStyles(this.appMyhidden);
+    this.onMouseEnter();
   }
   toggleStyles(checkBoolean: boolean) {
     if (checkBoolean) {
-      this.renderer.setStyle(this.element.nativeElement, 'display', 'none');
-      // this.currentDisplay = 'none';
+      // this.renderer.setStyle(this.element.nativeElement, 'display', 'none');
+      this.currentDisplay = 'none';
     } else {
-      this.renderer.setStyle(this.element.nativeElement, 'display', 'block');
-      // this.currentDisplay = 'block';
+      // this.renderer.setStyle(this.element.nativeElement, 'display', 'block');
+      this.currentDisplay = 'block';
     }
   }
   ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
     this.toggleStyles(changes['appMyhidden'].currentValue);
   }
 }

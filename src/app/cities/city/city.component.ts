@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit, HostListener} from '@angular/core';
 import {City} from '../../models/city';
 import {DataService} from "../../services/data.service";
 @Component({

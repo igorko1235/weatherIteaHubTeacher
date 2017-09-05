@@ -4,7 +4,7 @@
   <app-city
     (cityDeleted)="catchDeleting($event)"
     [index]="index"
-    *appDelay="index * 500"
+    *appDelay="(index + 1) * 1000"
     [city]="city"></app-city>
 </div>
 
