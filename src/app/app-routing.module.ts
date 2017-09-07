@@ -15,13 +15,16 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
+    path: 'about/:id',
+    component: AboutComponent
+  },
+  {
     path: 'help',
-    component: HelpComponent, children: [
-      {path: '1', component: HelpComponent},
-      {path: '2', component: HelpComponent},
-      {path: '3', component: HelpComponent},
-      {path: '4', component: HelpComponent},
-    ]
+    component: HelpComponent
+  },
+  {
+    path: 'help/:id',
+    component: HelpComponent
   },
   {
     path: 'not_found',

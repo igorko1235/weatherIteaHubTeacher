@@ -8,12 +8,14 @@ import {DataService} from "../../services/data.service";
 })
 export class AutocompleteComponent implements OnInit {
   searchTerms = '';
+  result: any;
   constructor(private dataService: DataService) { }
   ngOnInit() {
   }
   search() {
+    this.result = null;
     this.dataService.searchWeahter(this.searchTerms).subscribe( res => {
-      console.log(res);
+      this.result = res;
     });
   }
 }

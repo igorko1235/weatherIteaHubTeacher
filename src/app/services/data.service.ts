@@ -3,12 +3,13 @@ import {environment} from '../../environments/environment';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
-import 'rxjs/add/operator/repeat';
+import 'rxjs/add/operator/pluck';
 
 @Injectable()
 export class DataService {
   currentPosition: Position;
   private geolocationCathed = new Subject <Position>();
+  private loadingThread = new Subject <boolean>();
   constructor(private http: HttpClient) {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition( positions => {
@@ -16,8 +17,14 @@ export class DataService {
         this.sendPosition(positions);
       });
     } else {
-      alert('Geolocation is not supported by this browser.');
+      console.log('Geolocation is not supported by this browser.');
     }
+  }
+  toggleLoading(isShow: boolean) {
+    this.loadingThread.next(isShow);
+  }
+  listenToogling(): Observable<boolean> {
+    return this.loadingThread.asObservable();
   }
   sendPosition(position: Position) {
     this.geolocationCathed.next(position);
@@ -31,7 +38,8 @@ export class DataService {
       .set('units', environment.BASE_API_UNITS)
       .set('type', environment.BASE_API_SEARCH_TYPE)
       .set('q', search);
-    return this.http.get(environment.BASE_SEARCH_URL, {params: request});
+    return this.http.get(environment.BASE_SEARCH_URL, {params: request})
+      .pluck('list');
   }
   getCurrentWeahter(positions: Position): Observable<any> {
     const request = new HttpParams()

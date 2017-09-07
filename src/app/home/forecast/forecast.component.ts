@@ -11,6 +11,8 @@ export class ForecastComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getPosition().subscribe( pos => {});
+    this.dataService.getPosition().subscribe( pos => {
+
+    });
   }
 }

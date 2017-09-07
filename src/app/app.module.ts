@@ -20,6 +20,8 @@ import { ForecastItemComponent } from './home/forecast/forecast-item/forecast-it
 import { TodayWeatherComponent } from './home/today-weather/today-weather.component';
 import { WeatherListComponent } from './weather-list/weather-list.component';
 import { WeatherComponent } from './weather-list/weather/weather.component';
+import { CityWeatherComponent } from './city-weather/city-weather.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { WeatherComponent } from './weather-list/weather/weather.component';
     ForecastItemComponent,
     TodayWeatherComponent,
     WeatherListComponent,
-    WeatherComponent
+    WeatherComponent,
+    CityWeatherComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -13,4 +13,11 @@
       <span class="glyphicon glyphicon-search"></span>
     </button>
   </div>
+  <div class="col-xs-12" *ngIf="result">
+    <ul>
+      <li *ngFor="let sug of result">
+        <a [routerLink]="'about/' + sug.id">{{sug.name}}</a>
+      </li>
+    </ul>
+  </div>
 </form>
