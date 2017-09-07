@@ -1,0 +1,16 @@
+<form class="form-horizontal clearfix" role="search">
+  <div class="col-xs-10">
+    <div class="form-group">
+      <input type="text" [ngModelOptions]="{
+        standalone: true
+      }" [(ngModel)]="searchTerms" class="form-control" placeholder="Search">
+    </div>
+  </div>
+  <div class="col-xs-2">
+    <button (click)="search()"
+            type="submit"
+            class="btn btn-default btn-block">
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </div>
+</form>

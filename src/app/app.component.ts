@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {DataService} from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +6,7 @@ import {DataService} from './services/data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
-  hideTitle = false;
-  get dataFromService() {
-    return this.dataService.data;
-  }
-  constructor(private dataService: DataService) {}
+  constructor() {}
 
-  ngOnInit() {
-  }
-  toggle() {
-    this.hideTitle = !this.hideTitle;
-  }
+  ngOnInit() {}
 }

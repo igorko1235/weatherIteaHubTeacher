@@ -1,9 +1,5 @@
 <app-header></app-header>
-<!--<h1 style="color: red" appMyhidden>{{title}}</h1>-->
-<h1 style="color: red" *appMyNgIf="hideTitle">{{title}}</h1>
-<!--<h1 style="color: red" *ngIf="hideTitle">{{title}}</h1>-->
-<button (click)="toggle()">Toogle</button>
-<h2>SERVICE: {{dataFromService}}</h2>
-<app-autocomplete
-  [(search)]="title"></app-autocomplete>
-<app-cities></app-cities>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
+<app-footer></app-footer>

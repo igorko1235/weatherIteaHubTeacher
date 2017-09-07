@@ -7,33 +7,53 @@ import 'rxjs/add/operator/repeat';
 
 @Injectable()
 export class DataService {
-  data = 'My data from service';
-  private readonly GET_DIVIDER = '&';
-  public listenMessage = new Subject <string>();
+  currentPosition: Position;
+  private geolocationCathed = new Subject <Position>();
   constructor(private http: HttpClient) {
-  }
-  sendMessage(message: string) {
-    this.listenMessage.next(message);
-  }
-  clearMessage() {
-    this.listenMessage.next();
-  }
-  getMessage(): Observable<any> {
-    return this.listenMessage.asObservable();
-  }
-  makeRequestToServer(params: HttpParams): Observable <any> {
-    try {
-      const defaultParam = new HttpParams()
-        .set('units', environment.BASE_API_UNITS)
-        .set('appid', environment.BASE_API_URL);
-      for (const key of params.keys()) {
-        defaultParam.set(key, params.get(key));
-      }
-      console.log(defaultParam);
-      // const allParams = Object.assign(defaultParam, params);
-      return this.http.get(environment.BASE_API_URL, {params: params});
-    } catch (e) {
-      console.log(e.message);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition( positions => {
+        this.currentPosition = positions;
+        this.sendPosition(positions);
+      });
+    } else {
+      alert('Geolocation is not supported by this browser.');
     }
+  }
+  sendPosition(position: Position) {
+    this.geolocationCathed.next(position);
+  }
+  getPosition(): Observable<Position> {
+    return this.geolocationCathed.asObservable();
+  }
+  searchWeahter(search: string): Observable<any> {
+    const request = new HttpParams()
+      .set('appid', environment.BASE_API_KEY)
+      .set('units', environment.BASE_API_UNITS)
+      .set('type', environment.BASE_API_SEARCH_TYPE)
+      .set('q', search);
+    return this.http.get(environment.BASE_SEARCH_URL, {params: request});
+  }
+  getCurrentWeahter(positions: Position): Observable<any> {
+    const request = new HttpParams()
+      .set('appid', environment.BASE_API_KEY)
+      .set('units', environment.BASE_API_UNITS)
+      .set('lat', positions.coords.latitude.toString())
+      .set('lon', positions.coords.longitude.toString());
+    return this.http.get(environment.BASE_CURRENT_WEATHER_URL, {params: request});
+  }
+  getForecastByCityID(cityID: string): Observable<any> {
+    const request = new HttpParams()
+      .set('appid', environment.BASE_API_KEY)
+      .set('units', environment.BASE_API_UNITS)
+      .set('id', cityID);
+    return this.http.get(environment.BASE_FORECAST_URL, {params: request});
+  }
+  getForecastByPositions(positions: Position): Observable<any> {
+    const request = new HttpParams()
+      .set('appid', environment.BASE_API_KEY)
+      .set('units', environment.BASE_API_UNITS)
+      .set('lat', positions.coords.latitude.toString())
+      .set('lon', positions.coords.longitude.toString());
+    return this.http.get(environment.BASE_FORECAST_URL, {params: request});
   }
 }
