@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {WeatherListItem} from "../../../models/weatherListItem";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-suggestion',
@@ -8,9 +9,11 @@ import {WeatherListItem} from "../../../models/weatherListItem";
 })
 export class SuggestionComponent implements OnInit {
   @Input() weather: WeatherListItem;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
+  navigateToCity() {
+    this.router.navigate(['about', this.weather.id]);
+  }
 }

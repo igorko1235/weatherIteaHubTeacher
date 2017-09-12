@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <div class="container">
     <h1>Current area: {{request?.name}}
-      <img appCountry src="{{env.GET_WEAHTHER_IMAGE_URL(request?.weather[0].icon)}}" alt=""></h1>
+      <img appCountry="'UA'" alt=""></h1>
     <h1>Details: {{request?.weather[0].description}}</h1>
     <h2>Current temperature: {{request?.main.temp}}</h2>
   </div>

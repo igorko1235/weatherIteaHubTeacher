@@ -15,7 +15,9 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
   private subs: Subscription [] = [];
   result: WeatherList;
   searchForm: FormGroup;
-  searchTerms = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  searchTerms = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3)]);
   constructor(private fb: FormBuilder, private dataService: DataService) {}
   ngOnInit() {
     this.searchForm = this.fb.group({

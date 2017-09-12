@@ -8,7 +8,6 @@ export class CountryDirective implements OnInit {
   @HostBinding() src;
   constructor(private el: ElementRef, private renderer: Renderer2) {}
   ngOnInit() {
-    this.src = '100px';
     console.log(this.src);
   }
 }

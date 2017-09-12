@@ -12,10 +12,7 @@ export class AboutComponent implements OnInit {
   public id: string;
   public res: any;
   private subs: Subscription [] = [];
-  constructor(
-    private dataService: DataService,
-    private acvivatedRoute: ActivatedRoute) {
-  }
+  constructor(private acvivatedRoute: ActivatedRoute) {}
   ngOnInit() {
     const route = this.acvivatedRoute.params.subscribe(
       params => {
