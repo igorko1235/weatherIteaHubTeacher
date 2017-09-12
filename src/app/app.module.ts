@@ -1,7 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
 import * as $ from 'jquery';
-
+import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DataService} from './services/data.service';
@@ -14,12 +13,11 @@ import {FooterComponent} from './footer/footer.component';
 import {AutocompleteComponent} from './home/autocomplete/autocomplete.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import { AboutComponent } from './about/about.component';
-import { ForecastComponent } from './home/forecast/forecast.component';
-import { ForecastItemComponent } from './home/forecast/forecast-item/forecast-item.component';
 import { TodayWeatherComponent } from './home/today-weather/today-weather.component';
 import { CityWeatherComponent } from './city-weather/city-weather.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.component';
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -31,8 +29,6 @@ import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.c
     FooterComponent,
     NotFoundComponent,
     AboutComponent,
-    ForecastComponent,
-    ForecastItemComponent,
     TodayWeatherComponent,
     CityWeatherComponent,
     LoaderComponent,
@@ -41,6 +37,7 @@ import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.c
   imports: [
     BrowserModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule
