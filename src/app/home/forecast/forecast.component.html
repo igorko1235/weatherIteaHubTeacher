@@ -1,7 +1,8 @@
-<div class="row">
+<div class="row" *ngIf="res">
   <div class="col-xs-12">
     <h2 class="text-center">Wheather for 5 days</h2>
-    <app-forecast-item></app-forecast-item>
+    <h3 class="text-center">{{res.city.name}}, {{res.city.country}}</h3>
+    <app-forecast-item *ngFor="let weather of res.list" [weather]="weather"></app-forecast-item>
   </div>
 </div>
 

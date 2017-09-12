@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {environment} from "../../../environments/environment";
 import {Subscription} from "rxjs/Subscription";
+import {WeatherListItem} from "../../models/weatherListItem";
 
 @Component({
   selector: 'app-today-weather',
@@ -9,8 +10,7 @@ import {Subscription} from "rxjs/Subscription";
   styleUrls: ['./today-weather.component.css']
 })
 export class TodayWeatherComponent implements OnInit, OnDestroy {
-  public request: any;
-  public isLoading = false;
+  public request: WeatherListItem;
   public env: any;
   private subscriptions: Subscription [] = [];
   constructor(private dataService: DataService) {
@@ -18,15 +18,20 @@ export class TodayWeatherComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.dataService.getPosition().subscribe((res) => {
-      this.handlePosition(res);
-    });
+    if (!this.dataService.currentPosition) {
+      const posSub = this.dataService.getPosition().subscribe((res) => {
+        this.handlePosition(res);
+      });
+      this.subscriptions.push(posSub);
+    } else {
+      this.handlePosition(this.dataService.currentPosition);
+    }
   }
   handlePosition(position: Position) {
-    this.isLoading = true;
+    this.dataService.toggleLoading(true);
     const sub = this.dataService.getCurrentWeahter(position).subscribe(request => {
       this.request = request;
-      this.isLoading = false;
+      this.dataService.toggleLoading(false);
     });
     this.subscriptions.push(sub);
   }

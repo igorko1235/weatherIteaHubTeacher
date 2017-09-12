@@ -1,23 +1,10 @@
-<form class="form-horizontal clearfix" role="search">
-  <div class="col-xs-10">
+<form [formGroup]="searchForm" (ngSubmit)="search()" class="form-horizontal clearfix" role="search">
+  <div class="col-xs-12">
     <div class="form-group">
-      <input type="text" [ngModelOptions]="{
-        standalone: true
-      }" [(ngModel)]="searchTerms" class="form-control" placeholder="Search">
+      <input type="text" formControlName="searchTerms" class="form-control" placeholder="Search">
     </div>
   </div>
-  <div class="col-xs-2">
-    <button (click)="search()"
-            type="submit"
-            class="btn btn-default btn-block">
-      <span class="glyphicon glyphicon-search"></span>
-    </button>
-  </div>
-  <div class="col-xs-12" *ngIf="result">
-    <ul>
-      <li *ngFor="let sug of result">
-        <a [routerLink]="'about/' + sug.id">{{sug.name}}</a>
-      </li>
-    </ul>
+  <div *ngIf="result">
+    <app-suggestion *ngFor="let sug of result.list" [weather]="sug"></app-suggestion>
   </div>
 </form>

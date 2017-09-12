@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {AboutComponent} from "./about/about.component";
-import {HelpComponent} from "./help/help.component";
+import {AboutComponent} from './about/about.component';
 
 const routes: Routes = [
   {
@@ -17,14 +16,6 @@ const routes: Routes = [
   {
     path: 'about/:id',
     component: AboutComponent
-  },
-  {
-    path: 'help',
-    component: HelpComponent
-  },
-  {
-    path: 'help/:id',
-    component: HelpComponent
   },
   {
     path: 'not_found',

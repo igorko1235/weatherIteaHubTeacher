@@ -17,16 +17,11 @@ export class AboutComponent implements OnInit {
     private acvivatedRoute: ActivatedRoute) {
   }
   ngOnInit() {
-    this.dataService.toggleLoading(true);
     const route = this.acvivatedRoute.params.subscribe(
       params => {
-        this.dataService.getForecastByCityID(params['id']).subscribe(res => {
-          this.res = res;
-          this.dataService.toggleLoading(false);
-        }, error2 => {
-          console.log(error2);
-          this.dataService.toggleLoading(false);
-        });
+        if (params.hasOwnProperty('id')) {
+          this.id = params['id'];
+        }
       }
     );
     this.subs.push(route);
