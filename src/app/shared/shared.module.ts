@@ -4,13 +4,15 @@ import {ForecastItemComponent} from './forecast/forecast-item/forecast-item.comp
 import {ForecastComponent} from './forecast/forecast.component';
 import {CountryDirective} from './directives/country.directive';
 import {DelayDirective} from './directives/delay.directive';
+import {WeatherDirective} from "./directives/weather.directive";
 
 @NgModule({
   exports: [
     ForecastItemComponent,
     ForecastComponent,
     CountryDirective,
-    DelayDirective
+    DelayDirective,
+    WeatherDirective
   ],
   imports: [
     CommonModule
@@ -19,7 +21,8 @@ import {DelayDirective} from './directives/delay.directive';
     ForecastItemComponent,
     ForecastComponent,
     CountryDirective,
-    DelayDirective
+    DelayDirective,
+    WeatherDirective
   ]
 })
 export class SharedModule { }

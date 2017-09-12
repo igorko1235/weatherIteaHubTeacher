@@ -1,8 +1,9 @@
-<div class="jumbotron">
+<div class="jumbotron" *ngIf="request">
   <div class="container">
-    <h1>Current area: {{request?.name}}
-      <img appCountry="'UA'" alt=""></h1>
-    <h1>Details: {{request?.weather[0].description}}</h1>
-    <h2>Current temperature: {{request?.main.temp}}</h2>
+    <h1>Current area: {{request.name}}
+      <img [appWeather]="request.weather[0].icon">
+    </h1>
+    <h1>Details: {{request.weather[0].description}}</h1>
+    <h2>Current temperature: {{request.main.temp}}</h2>
   </div>
 </div>
