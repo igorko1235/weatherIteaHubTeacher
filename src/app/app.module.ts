@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DataService} from './services/data.service';
 import {HttpClientModule} from '@angular/common/http';
-import {DelayDirective} from './directives/delay.directive';
+import {DelayDirective} from './shared/directives/delay.directive';
 import {HeaderComponent} from './header/header.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HomeComponent} from './home/home.component';
@@ -18,12 +18,12 @@ import { CityWeatherComponent } from './city-weather/city-weather.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.component';
 import {SharedModule} from "./shared/shared.module";
+import { CountryDirective } from './shared/directives/country.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     AutocompleteComponent,
-    DelayDirective,
     HeaderComponent,
     HomeComponent,
     FooterComponent,
@@ -32,7 +32,7 @@ import {SharedModule} from "./shared/shared.module";
     TodayWeatherComponent,
     CityWeatherComponent,
     LoaderComponent,
-    SuggestionComponent
+    SuggestionComponent,
   ],
   imports: [
     BrowserModule,

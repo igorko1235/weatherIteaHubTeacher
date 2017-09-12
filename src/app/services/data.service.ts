@@ -51,12 +51,12 @@ export class DataService {
       .set('lon', positions.coords.longitude.toString());
     return this.http.get<WeatherListItem>(environment.BASE_CURRENT_WEATHER_URL, {params: request});
   }
-  getForecastByCityID(cityID: string): Observable<any> {
+  getForecastByCityID(cityID: string): Observable<WeatherList> {
     const request = new HttpParams()
       .set('appid', environment.BASE_API_KEY)
       .set('units', environment.BASE_API_UNITS)
       .set('id', cityID);
-    return this.http.get(environment.BASE_FORECAST_URL, {params: request});
+    return this.http.get<WeatherList>(environment.BASE_FORECAST_URL, {params: request});
   }
   getForecastByPositions(positions: Position): Observable<WeatherList> {
     const request = new HttpParams()

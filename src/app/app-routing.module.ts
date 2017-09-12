@@ -10,6 +10,10 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'lazy',
+    loadChildren: './first-lazy/first-lazy.module#FirstLazyModule',
+  },
+  {
     path: 'about',
     component: AboutComponent
   },

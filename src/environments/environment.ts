@@ -18,5 +18,5 @@ export const environment = {
   },
   BASE_API_KEY: 'e26eeabca9e39433929248234b6a16e6',
   BASE_API_UNITS: 'metric',
-  BASE_API_SEARCH_TYPE: 'like'
+  BASE_API_SEARCH_TYPE: 'like',
 };
