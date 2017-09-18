@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../services/data.service";
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import {MenuItem} from "../models/menu-item";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
-  providers: [DataService]
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public request: any;
-  public isLoading = false;
-  public env: any;
-  constructor(private dataService: DataService, private http: HttpClient) {
-    this.env = environment;
+  public menuLinks: MenuItem [] = [];
+  constructor() {
+    this.menuLinks.push(
+      new MenuItem('about', 'About', 'active'),
+      new MenuItem('lazy', 'Lazy', 'active'),
+    );
   }
-
   ngOnInit() {}
 }

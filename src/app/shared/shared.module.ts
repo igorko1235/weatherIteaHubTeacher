@@ -2,17 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ForecastItemComponent} from './forecast/forecast-item/forecast-item.component';
 import {ForecastComponent} from './forecast/forecast.component';
-import {CountryDirective} from './directives/country.directive';
 import {DelayDirective} from './directives/delay.directive';
-import {WeatherDirective} from "./directives/weather.directive";
+import { ImagePipe } from './pipes/image.pipe';
+import * as moment from 'moment';
+import { TemperaturePipe } from './pipes/temperature.pipe';
 
 @NgModule({
   exports: [
     ForecastItemComponent,
     ForecastComponent,
-    CountryDirective,
     DelayDirective,
-    WeatherDirective
+    ImagePipe,
+    TemperaturePipe
   ],
   imports: [
     CommonModule
@@ -20,9 +21,9 @@ import {WeatherDirective} from "./directives/weather.directive";
   declarations: [
     ForecastItemComponent,
     ForecastComponent,
-    CountryDirective,
     DelayDirective,
-    WeatherDirective
+    ImagePipe,
+    TemperaturePipe
   ]
 })
 export class SharedModule { }

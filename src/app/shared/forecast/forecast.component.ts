@@ -10,7 +10,6 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class ForecastComponent implements OnInit, OnDestroy {
   @Input() cityId: number;
-  public isShow = true;
   public res: WeatherList;
   private subscriptions: Subscription [] = [];
 

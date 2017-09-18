@@ -11,12 +11,18 @@ export const environment = {
   BASE_SEARCH_URL: BASE_API_URL + 'find?',
   BASE_FORECAST_URL: BASE_API_URL + 'forecast?',
   GET_WEAHTHER_IMAGE_URL: (id: string) => {
-    return 'http://openweathermap.org/img/w/' + id + '.png';
+    return 'http://openweathermap.org/img/w/' + id.toLowerCase() + '.png';
   },
   GET_COUNTRY_IMAGE_URL: (id: string) => {
     return 'http://openweathermap.org/images/flags/' + id.toLowerCase() + '.png';
   },
   BASE_API_KEY: 'e26eeabca9e39433929248234b6a16e6',
   BASE_API_UNITS: 'metric',
+  BASE_METRIC_UNITS: {
+    'metric': {
+      temperature: 'C',
+      speed: 'km',
+    }
+  },
   BASE_API_SEARCH_TYPE: 'like',
 };

@@ -1,4 +1,4 @@
 <!--<a class="well col-xs-12" [routerLink]="'about/' + weather.id">-->
 <div class="well col-xs-12" (click)="navigateToCity()">
-  {{weather.name}}, {{weather.sys.country}}
+  {{weather.name}}, <img [src]="weather.sys.country | image:'country'" [alt]="weather.sys.country">
 </div>

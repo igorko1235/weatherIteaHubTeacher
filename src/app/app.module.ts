@@ -16,6 +16,7 @@ import { TodayWeatherComponent } from './home/today-weather/today-weather.compon
 import { LoaderComponent } from './loader/loader.component';
 import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.component';
 import { SharedModule } from './shared/shared.module';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     HttpClientModule,
     AppRoutingModule
   ],

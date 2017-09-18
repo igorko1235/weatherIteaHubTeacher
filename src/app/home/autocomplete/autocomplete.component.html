@@ -9,3 +9,6 @@
 <div *ngIf="result">
   <app-suggestion *ngFor="let sug of result.list" [weather]="sug"></app-suggestion>
 </div>
+<div *ngIf="!result">
+  Search something!
+</div>

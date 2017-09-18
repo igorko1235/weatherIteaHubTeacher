@@ -40,8 +40,7 @@ export class DataService {
       .set('units', environment.BASE_API_UNITS)
       .set('type', environment.BASE_API_SEARCH_TYPE)
       .set('q', search);
-    return this.http.get<WeatherList>(environment.BASE_SEARCH_URL, {params: request})
-      // .pluck('list');
+    return this.http.get<WeatherList>(environment.BASE_SEARCH_URL, {params: request});
   }
   getCurrentWeahter(positions: Position): Observable<WeatherListItem> {
     const request = new HttpParams()
