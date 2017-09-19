@@ -4,8 +4,9 @@ import {ForecastItemComponent} from './forecast/forecast-item/forecast-item.comp
 import {ForecastComponent} from './forecast/forecast.component';
 import {DelayDirective} from './directives/delay.directive';
 import { ImagePipe } from './pipes/image.pipe';
-import * as moment from 'moment';
 import { TemperaturePipe } from './pipes/temperature.pipe';
+import {BootstrapUIModule} from "./bootstrapui/bootstrapui.module";
+import {MaterialModule} from "./material/material.module";
 
 @NgModule({
   exports: [
@@ -13,10 +14,14 @@ import { TemperaturePipe } from './pipes/temperature.pipe';
     ForecastComponent,
     DelayDirective,
     ImagePipe,
-    TemperaturePipe
+    TemperaturePipe,
+    BootstrapUIModule,
+    MaterialModule
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    BootstrapUIModule
   ],
   declarations: [
     ForecastItemComponent,

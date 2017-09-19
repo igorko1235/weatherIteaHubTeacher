@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import * as moment from 'moment';
+import {Moment} from "moment";
 
 @Component({
   selector: 'app-root',
@@ -6,7 +8,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+  public moment: Moment;
+  constructor() {
+    this.moment = moment();
+  }
+  ngOnInit() {
+  }
 }

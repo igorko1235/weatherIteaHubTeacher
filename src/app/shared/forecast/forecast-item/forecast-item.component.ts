@@ -1,10 +1,11 @@
 import {Component, HostBinding, Input} from '@angular/core';
 import {WeatherListItem} from '../../../models/weatherListItem';
-import {fadeInOut, flyInOut, scaleUp} from '../../../animations';
+import {fadeInOut, scaleUp} from '../../../animations';
+
 
 const MY_STATES = {
   start: 'small',
-  end: 'end'
+  end: 'big'
 };
 
 @Component({
@@ -12,17 +13,21 @@ const MY_STATES = {
   templateUrl: './forecast-item.component.html',
   styleUrls: ['./forecast-item.component.css'],
   animations: [
-    fadeInOut('1s', 0, 1),
-    flyInOut(),
+    fadeInOut(),
     scaleUp('1s', 1, 1.5, MY_STATES.start, MY_STATES.end)
   ]
 })
 export class ForecastItemComponent {
   public state = MY_STATES.start;
+  public format = 'fullDate';
   @Input() weather: WeatherListItem;
-  @HostBinding('@flyInOut') flyInOut() {}
+  @HostBinding('@fadeInOut') fadeInOut() {}
   constructor() {}
+  changeFormat() {
+
+  }
   scaleMyself() {
-    this.state = this.state === MY_STATES.start ?  MY_STATES.end : MY_STATES.start;
+    // this.format = this.format === 'fullDate' ?  'longDate' : 'fullDate';
+    // this.state = this.state === MY_STATES.start ?  MY_STATES.end : MY_STATES.start;
   }
 }

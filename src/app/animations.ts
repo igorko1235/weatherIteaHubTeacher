@@ -1,23 +1,21 @@
-import { trigger, state, style, transition, animate, keyframes} from '@angular/animations';
-
-export function fadeInOut (duration, startOpacity, endOpacity) {
+import {trigger, state, style, transition, animate, keyframes} from '@angular/animations';
+export function fadeInOut () {
   return trigger('fadeInOut', [
-    transition('* => void', [
-      style({opacity: startOpacity.toString()}),
-      animate(duration, style({opacity: endOpacity}))
+    transition(':enter', [   // :enter is alias to 'void => *'
+      style({opacity:0}),
+      animate(500, style({opacity:1}))
     ]),
-    transition('void => *', [
-      style({opacity: endOpacity.toString()}),
-      animate(duration, style({opacity: startOpacity}))
+    transition(':leave', [   // :leave is alias to '* => void'
+      animate(500, style({opacity:0}))
     ])
-  ]);
+  ])
 }
 export function scaleUp (duration, startScale, endScale, startState, endState) {
   return trigger('scaleUp', [
-    state(startState, style({
+    state('small', style({
       transform: `scale(${startScale})`,
     })),
-    state(endState, style({
+    state('big', style({
       transform: `scale(${endScale})`,
     })),
     transition(`${startState} <=> ${endState}`, animate(`${duration} 100ms ease-in`))
