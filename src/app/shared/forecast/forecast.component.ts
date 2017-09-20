@@ -2,6 +2,9 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {WeatherList} from "../../models/weather-list";
 import {Subscription} from "rxjs/Subscription";
+import { asEnumerable } from 'linq-es2015';
+//mport { Moment } from 'moment';
+import * as moment from 'moment/moment';
 
 @Component({
   selector: 'app-forecast',
@@ -12,13 +15,20 @@ export class ForecastComponent implements OnInit, OnDestroy {
   @Input() cityId: number;
   public res: WeatherList;
   private subscriptions: Subscription [] = [];
+ // private moment: Moment
 
   constructor(private dataService: DataService) {
+    //this.moment = new Moment();
   }
+
 
   handlePositions(pos: Position) {
     const forecastByPos = this.dataService.getForecastByPositions(pos).subscribe(res => {
       this.res = res;
+     
+      let t = asEnumerable(res.list).GroupBy(x=> moment(x.dt_txt).date()).ToArray();
+      console.log(t);
+
       this.dataService.toggleLoading(false);
     });
     this.subscriptions.push(forecastByPos);

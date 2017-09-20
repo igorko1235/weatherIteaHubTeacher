@@ -4,8 +4,8 @@
     <h3 class="text-center">{{res.city.name}},
       <img [src]="res.city.country | image:'country'" alt="">
     </h3>
-    <div *ngFor="let weather of res.list; let index = index">
-      <app-forecast-item *appDelay="index * 500" [weather]="weather"></app-forecast-item>
+    <div *ngFor="let item of res; let index = index">
+      <app-forecast-item *appDelay="index * 500" [weather]="item"></app-forecast-item>
     </div>
   </div>
 </div>
