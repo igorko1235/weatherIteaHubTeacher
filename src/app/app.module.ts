@@ -15,6 +15,7 @@ import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.c
 import { SharedModule } from './shared/shared.module';
 import {AuthService} from './services/auth.service';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {LoginComponent} from "./auth/login/login.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TodayWeatherComponent,
     LoaderComponent,
     SuggestionComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

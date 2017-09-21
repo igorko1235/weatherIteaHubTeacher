@@ -4,7 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserPanelComponent } from './user-panel/user-panel.component';
-import {AuthRoutingModule} from './auth-routing.module';
+import { AuthRoutingModule} from './auth-routing.module';
 
 @NgModule({
   imports: [

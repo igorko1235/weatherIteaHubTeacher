@@ -19,6 +19,9 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
     Validators.required,
     Validators.minLength(3)]);
   constructor(private fb: FormBuilder, private dataService: DataService) {}
+  get autoInvalid() {
+    return !this.searchTerms.valid;
+  }
   ngOnInit() {
     this.searchForm = this.fb.group({
       'searchTerms': this.searchTerms,
