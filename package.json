@@ -25,6 +25,7 @@
     "@angular/platform-browser-dynamic": "^4.4.1",
     "@angular/platform-server": "^4.4.1",
     "@angular/router": "^4.4.1",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
     "@types/swiper": "^3.4.4",
     "bootstrap": "^3.3.7",
     "classlist.js": "^1.1.20150312",

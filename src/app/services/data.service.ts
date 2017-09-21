@@ -16,6 +16,7 @@ export class DataService {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition( positions => {
         this.currentPosition = positions;
+        console.log(positions)
         this.sendPosition(positions);
       });
     } else {

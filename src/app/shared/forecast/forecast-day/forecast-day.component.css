@@ -1,0 +1,12 @@
+.cloudy {
+  background-color: #51556a;
+  padding: 20px;
+}
+
+.windArrow {
+  position: absolute;
+  padding-left: 20px;
+}
+.wind {
+  position: relative;
+}

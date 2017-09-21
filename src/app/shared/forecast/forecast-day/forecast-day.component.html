@@ -1,0 +1,18 @@
+
+
+<div [ngClass]="{'cloudy': isCloudy}">
+  <h1>max: {{max}}</h1>
+  <h1>min: {{min}}</h1>
+  <h1>avg temp: {{avg}}</h1>
+  <h1>clouds: {{clouds}}</h1>
+  <p><ngb-progressbar type="info" [value]="clouds"></ngb-progressbar></p>
+  <h1 class='wind'>wind: {{wind}} <span class="windArrow" [style.transform]="'rotate(' + (wind - 90) + 'deg)'"
+  >-></span></h1>
+
+  <div *ngFor="let weather of day; let index = index">
+    <app-forecast-item [weather]="weather"></app-forecast-item>
+    <!--<p>{{weather.dt_txt | date:'yMd'}}</p>-->
+  </div>
+
+</div>
+

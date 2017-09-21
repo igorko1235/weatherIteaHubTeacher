@@ -7,7 +7,9 @@
           [@scaleUp]="state">SCALE MYSELF {{state}}</button>
   <div class="panel-body">
     {{weather.weather[0].description}}
+    <p>{{weather.main.temp}}</p>
+    <p>{{weather.weather[0].main}}</p>
   </div>
-  <div class="panel-footer">{{weather.dt_txt | date:format}}</div>
+  <div class="panel-footer">{{weather.dt_txt }}</div>
   <!--<div class="panel-footer">{{weather.dt_txt}}</div>-->
 </div>

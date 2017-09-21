@@ -1,6 +1,6 @@
 import {Component, HostBinding, Input} from '@angular/core';
-import {WeatherListItem} from '../../../models/weatherListItem';
-import {fadeInOut, scaleUp} from '../../../animations';
+import {WeatherListItem} from '../../../../models/weatherListItem';
+import {fadeInOut, scaleUp} from '../../../../animations';
 
 
 const MY_STATES = {
