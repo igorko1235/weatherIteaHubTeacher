@@ -1,16 +1,16 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {TEM_PIPES_TYPE} from "../../pipes/temperature.pipe";
 @Component({
   selector: 'app-forecast-day',
   templateUrl: './forecast-day.component.html',
   styleUrls: ['./forecast-day.component.css']
 })
 export class ForecastDayComponent implements OnInit,  OnChanges {
-  max: number = 0;
-  min: number = 0;
-  avg: number = 0;
   clouds: number = 0;
   wind: number = 0;
+  temperatures: number[] = [];
+  tempTypesAVG: TEM_PIPES_TYPE = TEM_PIPES_TYPE.MIN;
   cloudy: boolean = false;
 
 
@@ -105,12 +105,16 @@ export class ForecastDayComponent implements OnInit,  OnChanges {
     this._day
       .subscribe(day => {
         console.log(day)
-        this.max = this.maxTemp(day);
-        this.min = this.minTemp(day);
-        this.avg = this.avgTemp(day);
+        // this.max = this.maxTemp(day);
+        // this.min = this.minTemp(day);
+        // this.avg = this.avgTemp(day);
         this.clouds = this.avgClouds(day);
         this.wind = this.avgWind(day);
         this.cloudy = this.isCloudy(day);
+        for (const temp of day) {
+          this.temperatures.push(temp.main.temp);
+        }
+        console.log(day);
       });
   }
 
