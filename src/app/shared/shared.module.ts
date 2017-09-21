@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {ForecastItemComponent} from './forecast/forecast-item/forecast-item.component';
 import {ForecastComponent} from './forecast/forecast.component';
 import {DelayDirective} from './directives/delay.directive';
-import { ImagePipe } from './pipes/image.pipe';
-import { TemperaturePipe } from './pipes/temperature.pipe';
-import {BootstrapUIModule} from "./bootstrapui/bootstrapui.module";
-import {MaterialModule} from "./material/material.module";
+import {ImagePipe} from './pipes/image.pipe';
+import {TemperaturePipe} from './pipes/temperature.pipe';
+import {BootstrapUIModule} from './bootstrapui/bootstrapui.module';
+import {MaterialModule} from './material/material.module';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {HttpClientModule} from '@angular/common/http';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+const FIREBASE_CONFIG = {
+  apiKey: 'AIzaSyBYWNdlErPkBY7UhzcikVdyT0iSaQQ9wGE',
+    authDomain: 'iteahhubbackend.firebaseapp.com',
+    databaseURL: 'https://iteahhubbackend.firebaseio.com/',
+    storageBucket: '.appspot.com',
+    messagingSenderId: '',
+};
 
 @NgModule({
   exports: [
@@ -16,12 +29,25 @@ import {MaterialModule} from "./material/material.module";
     ImagePipe,
     TemperaturePipe,
     BootstrapUIModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    HttpClientModule
   ],
   imports: [
-    CommonModule,
     MaterialModule,
-    BootstrapUIModule
+    BootstrapUIModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   declarations: [
     ForecastItemComponent,

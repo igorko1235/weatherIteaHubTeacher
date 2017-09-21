@@ -10,8 +10,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'lazy',
-    loadChildren: './first-lazy/first-lazy.module#FirstLazyModule',
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule',
   },
   {
     path: 'about',

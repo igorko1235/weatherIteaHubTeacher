@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   constructor() {
     this.menuLinks.push(
       new MenuItem('about', 'About', 'active'),
-      new MenuItem('lazy', 'Lazy', 'active'),
+      new MenuItem('auth', 'Login', 'active'),
     );
   }
   ngOnInit() {}

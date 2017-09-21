@@ -4,8 +4,8 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/pluck';
-import {WeatherList} from "../models/weather-list";
-import {WeatherListItem} from "../models/weatherListItem";
+import {WeatherList} from '../models/weather-list';
+import {WeatherListItem} from '../models/weatherListItem';
 
 @Injectable()
 export class DataService {
