@@ -5,11 +5,13 @@ import {Subscription} from 'rxjs/Subscription';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
+import {fadeInOut} from '../../animations';
 
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.css']
+  styleUrls: ['./autocomplete.component.css'],
+  animations: [fadeInOut(500)]
 })
 export class AutocompleteComponent implements OnInit, OnDestroy {
   private subs: Subscription [] = [];
@@ -19,9 +21,6 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
     Validators.required,
     Validators.minLength(3)]);
   constructor(private fb: FormBuilder, private dataService: DataService) {}
-  get autoInvalid() {
-    return !this.searchTerms.valid;
-  }
   ngOnInit() {
     this.searchForm = this.fb.group({
       'searchTerms': this.searchTerms,

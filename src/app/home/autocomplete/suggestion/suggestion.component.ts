@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {WeatherListItem} from "../../../models/weatherListItem";
 import {Router} from "@angular/router";
+import {fadeInOut} from "../../../animations";
 
 @Component({
   selector: 'app-suggestion',

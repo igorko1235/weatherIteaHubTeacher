@@ -10,7 +10,7 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {HttpClientModule} from '@angular/common/http';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const FIREBASE_CONFIG = {
@@ -35,19 +35,19 @@ const FIREBASE_CONFIG = {
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   imports: [
     MaterialModule,
     BootstrapUIModule,
     FormsModule,
     ReactiveFormsModule,
-    NoopAnimationsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     ForecastItemComponent,

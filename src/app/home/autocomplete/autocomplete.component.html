@@ -4,11 +4,10 @@
     <div class="form-group">
       <input type="text" formControlName="searchTerms"
              class="form-control" placeholder="Search">
-      <div *ngIf="autoInvalid">Helo</div>
     </div>
   </div>
 </form>
-<div *ngIf="result">
+<div *ngIf="result" [@fadeInOut]>
   <app-suggestion *ngFor="let sug of result.list" [weather]="sug"></app-suggestion>
 </div>
 <div *ngIf="!result">

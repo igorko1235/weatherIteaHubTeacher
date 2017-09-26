@@ -15,5 +15,4 @@ export class LoaderComponent implements OnInit {
       this.isShow = isShow;
     });
   }
-
 }

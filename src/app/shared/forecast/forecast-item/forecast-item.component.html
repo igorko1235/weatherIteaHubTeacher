@@ -1,13 +1,12 @@
-<div class="panel panel-default">
+<button (click)="scaleMyself()"
+       >SCALE MYSELF {{state}}</button>
+<div class="panel panel-default" [@scaleUp]="state">
   <div class="panel-heading">
     <h3 class="panel-title">{{weather.weather[0].main}}</h3>
   </div>
-  <button (click)="scaleMyself()"
-          md-raised-button
-          [@scaleUp]="state">SCALE MYSELF {{state}}</button>
   <div class="panel-body">
     {{weather.weather[0].description}}
   </div>
-  <div class="panel-footer">{{weather.dt_txt | date:format}}</div>
+  <div class="panel-footer">{{weather.dt_txt}}</div>
   <!--<div class="panel-footer">{{weather.dt_txt}}</div>-->
 </div>

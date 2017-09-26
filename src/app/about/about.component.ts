@@ -1,26 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Subscription} from "rxjs/Subscription";
+import {Component, HostBinding, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
   public id: string;
-  public res: any;
-  private subs: Subscription [] = [];
-  constructor(private acvivatedRoute: ActivatedRoute) {}
+  // @HostBinding('@slideInOutAnimation') slideInOutAnimation;
+  constructor(private activatedRoute: ActivatedRoute) {}
   ngOnInit() {
-    const route = this.acvivatedRoute.params.subscribe(
+    this.activatedRoute.params.subscribe(
       params => {
         if (params.hasOwnProperty('id')) {
           this.id = params['id'];
         }
       }
     );
-    this.subs.push(route);
   }
-
 }
