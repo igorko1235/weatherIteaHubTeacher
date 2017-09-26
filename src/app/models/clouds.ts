@@ -1,3 +1,3 @@
 export class Clouds {
-  all: string;
+  all: number;
 }

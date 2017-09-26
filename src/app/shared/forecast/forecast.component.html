@@ -1,12 +1,14 @@
 <div class="row" *ngIf="res">
   <div class="col-xs-12">
     <h2 class="text-center">Wheather for 5 days</h2>
-    <h3 class="text-center">{{res.city.name}},
-      <img [src]="res.city.country | image:'country'" alt="">
-    </h3>
-    <div *ngFor="let item of res; let index = index">
-      <app-forecast-item *appDelay="index * 500" [weather]="item"></app-forecast-item>
-    </div>
+      <md-tab-group>
+              <md-tab *ngFor="let item of res; let index = index" >
+                  <ng-template md-tab-label>
+                      {{item[0].dt_txt | date: 'EEEE'}}
+                    </ng-template>
+              <app-forecast-item *appDelay="index * 500" [day]="item"></app-forecast-item> 
+              </md-tab>
+      </md-tab-group>
   </div>
 </div>
 

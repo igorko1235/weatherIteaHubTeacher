@@ -3,8 +3,13 @@ import {DataService} from "../../services/data.service";
 import {WeatherList} from "../../models/weather-list";
 import {Subscription} from "rxjs/Subscription";
 import { asEnumerable } from 'linq-es2015';
-//mport { Moment } from 'moment';
 import * as moment from 'moment/moment';
+import {WeatherListItem} from '../../models/weatherListItem'
+export enum TEM_TYPES{
+  AVG,
+  MIN,
+  MAX
+}
 
 @Component({
   selector: 'app-forecast',
@@ -13,21 +18,18 @@ import * as moment from 'moment/moment';
 })
 export class ForecastComponent implements OnInit, OnDestroy {
   @Input() cityId: number;
-  public res: WeatherList;
+  public res: any//WeatherListItem[][]
   private subscriptions: Subscription [] = [];
- // private moment: Moment
 
-  constructor(private dataService: DataService) {
-    //this.moment = new Moment();
+  constructor(private dataService: DataService) 
+  {
   }
 
 
   handlePositions(pos: Position) {
     const forecastByPos = this.dataService.getForecastByPositions(pos).subscribe(res => {
-      this.res = res;
      
-      let t = asEnumerable(res.list).GroupBy(x=> moment(x.dt_txt).date()).ToArray();
-      console.log(t);
+      this.res = asEnumerable(res.list).Select(x=> {x.isShow = true; return x;}).GroupBy(x=> moment(x.dt_txt).date()).ToArray();
 
       this.dataService.toggleLoading(false);
     });

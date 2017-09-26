@@ -21,4 +21,5 @@ export class WeatherListItem {
   snow: any;
   weather: Weather[];
   wind: Wind;
+  isShow: boolean = true;
 }

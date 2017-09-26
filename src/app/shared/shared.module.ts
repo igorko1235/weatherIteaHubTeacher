@@ -6,6 +6,12 @@ import {DelayDirective} from './directives/delay.directive';
 import { ImagePipe } from './pipes/image.pipe';
 import * as moment from 'moment';
 import { TemperaturePipe } from './pipes/temperature.pipe';
+import { ForecastTimeComponent } from './forecast/forecast-item/forecast-time/forecast-time.component';
+import {MaterialModule} from './material/material.module';
+import {NgprimeModule} from './ngprime/ngprime.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+
 
 @NgModule({
   exports: [
@@ -13,17 +19,24 @@ import { TemperaturePipe } from './pipes/temperature.pipe';
     ForecastComponent,
     DelayDirective,
     ImagePipe,
-    TemperaturePipe
+    TemperaturePipe,
+    FormsModule,
+    MaterialModule,
+    NgprimeModule
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    MaterialModule,
+    NgprimeModule
   ],
   declarations: [
     ForecastItemComponent,
     ForecastComponent,
     DelayDirective,
     ImagePipe,
-    TemperaturePipe
+    TemperaturePipe,
+    ForecastTimeComponent
   ]
 })
 export class SharedModule { }

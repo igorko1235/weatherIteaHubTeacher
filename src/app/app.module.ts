@@ -39,7 +39,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     BrowserAnimationsModule,
     NoopAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     DataService

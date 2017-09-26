@@ -1,0 +1,13 @@
+.p-chart-wrapper{
+  padding: 20px;
+  background: white !important;
+}
+.wind-arrow {
+    position: absolute;
+    padding-left: 10px;
+    font-size: 18px;
+    bottom: 0px;
+  }
+  .cloudy {
+    background-color: #dadada;
+  }

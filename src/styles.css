@@ -1,1 +1,19 @@
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.panel{
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+.panel-heading{
+        border-top-left-radius:  0px !important;
+    border-top-right-radius:  0px !important;
+}
+
+
+
+.panel-primary>.panel-heading{
+    background-color: #3f51b5 !important;
+}

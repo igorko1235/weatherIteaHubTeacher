@@ -1,11 +1,31 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{{weather.weather[0].main}}</h3>
+<div class="panel panel-default" [ngClass]="{'cloudy': isCloudy}">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <div class="row">
+                    <div class="col-lg-2">{{day[0].dt_txt | date}}</div>
+                    <div class="col-lg-2">avg: {{dayTemperatures | temperature: tempAvgType}} </div>
+                    <div class="col-lg-2">min: {{dayTemperatures | temperature: tempMinType}} </div>
+                    <div class="col-lg-2">max: {{dayTemperatures | temperature: tempMaxType}} </div>
+                    <div class="col-lg-2">wind: {{windSpeed}} 
+                        <span class="wind-arrow" 
+                        [style.transform]="'rotate(' + (windDeg - 90) + 'deg)'">&#8611;</span>
+                    </div>
+                    <div class="col-lg-2">
+                      <p-multiSelect [options]="dayTimes" [(ngModel)]="selectedTimes" (onChange)="onChangeTime($event)"></p-multiSelect>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <md-progress-bar mode='determinate' [value]='clouds'></md-progress-bar>
+          <div class="panel-body">
+              <div class="row">
+                  <div *ngFor="let item of day" >
+                      <app-forecast-time [weatherTime]="item"></app-forecast-time>
+                  </div>
+                </div>
+          </div>
+   <div class="p-chart-wrapper">
+    <p-chart type="line" [data]="data" (onDataSelect)="selectData($event)"></p-chart>
+   </div>
   </div>
-  <button (click)="scaleMyself()"
-          [@scaleUp]="state">SCALE MYSELF {{state}}</button>
-  <div class="panel-body">
-    {{weather.weather[0].description}}
-  </div>
-  <div class="panel-footer">{{weather.dt_txt | date}}</div>
-</div>
+  

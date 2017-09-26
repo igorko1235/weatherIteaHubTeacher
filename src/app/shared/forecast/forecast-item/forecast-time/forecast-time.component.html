@@ -1,0 +1,14 @@
+<div class="col-md-2" *ngIf="weatherTime.isShow">
+<div class="panel panel-primary" >
+    <div class="panel-heading">
+      <h3 class="panel-title">{{weatherTime.dt_txt | date:'HH:MM'}}</h3>
+    </div>
+    <div class="panel-body">
+        <img [src]="weatherTime.weather[0].icon | image:'weather'">
+        <div>
+           {{weatherTime.weather[0].description | titlecase}}
+        </div>
+        <span [innerHtml]="weatherTime.main.temp | temperature"></span>
+    </div>
+  </div>
+</div>
