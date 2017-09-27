@@ -3,13 +3,19 @@ import {DataService} from "../../services/data.service";
 import {environment} from "../../../environments/environment";
 import {Subscription} from "rxjs/Subscription";
 import {WeatherListItem} from "../../models/weatherListItem";
+import {fadeInOut, flyInOut, flyInOutKEY} from "../../animations";
 
 @Component({
   selector: 'app-today-weather',
   templateUrl: './today-weather.component.html',
-  styleUrls: ['./today-weather.component.css']
+  styleUrls: ['./today-weather.component.css'],
+  animations: [
+    flyInOut(),
+    fadeInOut(2, true),
+    flyInOutKEY()]
 })
 export class TodayWeatherComponent implements OnInit, OnDestroy {
+  isShow = true;
   public request: WeatherListItem;
   public env: any;
   private subscriptions: Subscription [] = [];

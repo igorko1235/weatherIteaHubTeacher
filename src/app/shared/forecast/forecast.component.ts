@@ -2,11 +2,13 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {WeatherList} from "../../models/weather-list";
 import {Subscription} from "rxjs/Subscription";
+import {flyInOutKEY} from "../../animations";
 
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
-  styleUrls: ['./forecast.component.css']
+  styleUrls: ['./forecast.component.css'],
+  animations: [flyInOutKEY()]
 })
 export class ForecastComponent implements OnInit, OnDestroy {
   @Input() cityId: number;
@@ -38,10 +40,15 @@ export class ForecastComponent implements OnInit, OnDestroy {
         this.subscriptions.push(posSub);
       }
     } else {
-      const forecastById = this.dataService.getForecastByCityID(this.cityId.toString()).subscribe(res => {
-        this.res = res;
-        this.dataService.toggleLoading(false);
-      });
+      const forecastById = this.dataService.getForecastByCityID(this.cityId.toString())
+          .subscribe(
+      res => {
+              this.res = res;
+          },
+          e => {
+            console.log(e.message);
+          }
+      );
       this.subscriptions.push(forecastById);
     }
   }

@@ -10,8 +10,7 @@ import {fadeInOut} from '../../animations';
 @Component({
   selector: 'app-autocomplete',
   templateUrl: './autocomplete.component.html',
-  styleUrls: ['./autocomplete.component.css'],
-  animations: [fadeInOut(500)]
+  styleUrls: ['./autocomplete.component.css']
 })
 export class AutocompleteComponent implements OnInit, OnDestroy {
   private subs: Subscription [] = [];

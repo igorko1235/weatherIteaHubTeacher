@@ -1,5 +1,6 @@
 <div class="jumbotron" *ngIf="request">
-  <div class="container">
+  <button (click)="isShow = !isShow">Trigger</button>
+  <div class="container" *ngIf="isShow">
     <h1>Current area: {{request.name}}
       <!--<img [appWeather]="request.weather[0].icon">-->
       <img [src]="request.weather[0].icon | image:'weather'">
