@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../services/data.service";
+import {DataService} from '../services/data.service';
+import {fadeInOut} from '../animations';
 
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.css']
+  styleUrls: ['./loader.component.css'],
+  animations: [fadeInOut(500)],
 })
 export class LoaderComponent implements OnInit {
   public isShow = false;

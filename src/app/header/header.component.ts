@@ -9,9 +9,10 @@ import {MenuItem} from "../models/menu-item";
 export class HeaderComponent implements OnInit {
   public menuLinks: MenuItem [] = [];
   constructor() {
+    const activeClass = 'active';
     this.menuLinks.push(
-      new MenuItem('about', 'About', 'active'),
-      new MenuItem('auth', 'Login', 'active'),
+      new MenuItem('about', 'Weather', activeClass),
+      new MenuItem('auth', 'Login', activeClass),
     );
   }
   ngOnInit() {}

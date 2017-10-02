@@ -5,7 +5,7 @@
       <img [src]="res.city.country | image:'country'" alt="">
     </h3>
     <div *ngFor="let weather of res.list; let index = index">
-      <app-forecast-item [@flyInOutKEY] *appDelay="index * 1000"  [weather]="weather"></app-forecast-item>
+      <app-forecast-item [weather]="weather"></app-forecast-item>
     </div>
   </div>
 </div>
