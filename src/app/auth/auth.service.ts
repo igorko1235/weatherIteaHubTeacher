@@ -6,33 +6,26 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  localUser: Object;
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
   }
 
-  signup(email: string, password: string) {
-    return this.firebaseAuth
-      .auth
-      .createUserWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Success!', value);
-      })
-      .catch(err => {
-        console.log('Something went wrong:',err.message);
-      });
+  isLoggedIn() {
+    return !!localStorage.getItem('user');
   }
 
-  login(email: string, password: string) {
+  signup(email: string, password: string): firebase.Promise<any> {
     return this.firebaseAuth
       .auth
-      .signInWithEmailAndPassword(email, password)
-      .then(value => {
-        console.log('Nice, it worked!');
-      })
-      .catch(err => {
-        console.log('Something went wrong:', err.message);
-      });
+      .createUserWithEmailAndPassword(email, password);
+  }
+
+  login(email: string, password: string): firebase.Promise<any> {
+    return this.firebaseAuth
+      .auth
+      .signInWithEmailAndPassword(email, password);
   }
 
   logout() {

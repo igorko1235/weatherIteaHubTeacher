@@ -10,8 +10,8 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {HttpClientModule} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
 
 const FIREBASE_CONFIG = {
   apiKey: 'AIzaSyBYWNdlErPkBY7UhzcikVdyT0iSaQQ9wGE',
@@ -36,9 +36,9 @@ const FIREBASE_CONFIG = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
   ],
   imports: [
+    CommonModule,
     MaterialModule,
     BootstrapUIModule,
     FormsModule,
@@ -46,8 +46,7 @@ const FIREBASE_CONFIG = {
     HttpClientModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    AngularFireAuthModule,
-    BrowserAnimationsModule
+    AngularFireAuthModule
   ],
   declarations: [
     ForecastItemComponent,

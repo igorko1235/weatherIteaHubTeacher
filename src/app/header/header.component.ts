@@ -12,7 +12,9 @@ export class HeaderComponent implements OnInit {
     const activeClass = 'active';
     this.menuLinks.push(
       new MenuItem('about', 'Weather', activeClass),
-      new MenuItem('auth', 'Login', activeClass),
+      new MenuItem('auth', 'Auth module in', activeClass),
+      new MenuItem('auth/register', 'Register', activeClass),
+      new MenuItem('auth/user-panel', 'USER', activeClass),
     );
   }
   ngOnInit() {}

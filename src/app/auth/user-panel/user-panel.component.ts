@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
-import * as firebase from 'firebase/app';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+import {Observable} from 'rxjs/Observable';
+import {AuthService} from '../auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-panel',
@@ -10,13 +10,20 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-  constructor(db: AngularFireDatabase) {
-    db.list('cities').subscribe(data => {
-      console.log(data);
-    });
-  }
-
+  list: FirebaseListObservable <any []>;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    public db: AngularFireDatabase,
+    public authService: AuthService) {}
   ngOnInit() {
+    this.list = this.db.list('cities');
   }
-
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['../login'], {
+      relativeTo: this.route
+    });
+    this.authService.logout();
+  }
 }
