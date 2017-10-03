@@ -5,7 +5,7 @@
            [(ngModel)]="user.email"
            type="email" name="email"
            #email="ngModel" required/>
-    <div [hidden]="email?.valid" class="alert alert-danger">
+    <div [hidden]="email?.valid && email?.untouched" class="alert alert-danger">
       Incorrect email
     </div>
   </div>
@@ -19,6 +19,7 @@
       Type your password
     </div>
   </div>
+  <br>
   <button (click)="login()" [disabled]="!user.email || !user.password">
     Login
   </button>
