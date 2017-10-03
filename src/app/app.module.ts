@@ -13,9 +13,7 @@ import { TodayWeatherComponent } from './home/today-weather/today-weather.compon
 import { LoaderComponent } from './loader/loader.component';
 import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.component';
 import { SharedModule } from './shared/shared.module';
-import {AuthService} from './auth/auth.service';
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {LoginComponent} from "./auth/login/login.component";
 
 @NgModule({
   declarations: [

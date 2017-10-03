@@ -1,6 +1,6 @@
-<h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.email }}!</h1>
+<h1>Welcome {{ (authService.user | async)?.email }}!</h1>
 <ul>
-  <li *ngFor="let city of list | async">{{city.id}} - {{city.name}}</li>
+  <li *ngFor="let city of list$ | async">{{city.id}} - {{city.name}}</li>
 </ul>
 <button (click)="logout()" *ngIf="authService.user | async">
   Logout

@@ -35,7 +35,7 @@ const FIREBASE_CONFIG = {
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   imports: [
     CommonModule,

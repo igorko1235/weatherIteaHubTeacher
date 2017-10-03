@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
-import {UserForm} from '../user-form';
-import {ActivatedRoute, Router} from "@angular/router";
-import {DataService} from "../../services/data.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ActivatedRoute, Router} from '@angular/router';
+import {DataService} from '../../services/data.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +10,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  user: UserForm = new UserForm();
   userForm: FormGroup;
 
   constructor(
@@ -37,8 +35,11 @@ export class RegisterComponent implements OnInit {
 
   initForm() {
     const minPassLength = 6;
-    this.userForm = this.fb.group({
-      email: ['', Validators.email],
+    this.userForm = this.fb.group( {
+      email: ['', Validators.compose([
+        Validators.email,
+        Validators.required
+      ])],
       password: ['', Validators.compose([
         Validators.required,
         Validators.minLength(minPassLength)
@@ -46,10 +47,11 @@ export class RegisterComponent implements OnInit {
       passwordRepeat: ['', Validators.compose([
         Validators.required,
         Validators.minLength(minPassLength)
-      ])],
-    }, {
+      ])]
+    },{
       validator: this.matchingPasswords('password', 'passwordRepeat')
     });
+    console.log(this.userForm);
   }
 
   signup() {

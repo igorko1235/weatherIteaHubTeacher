@@ -31,9 +31,14 @@
          class="alert alert-danger">
       Type your password again
     </div>
+    <div [hidden]="userForm.get('passwordRepeat')?.valid
+     || userForm.get('passwordRepeat')?.untouched
+     || !userForm.get('passwordRepeat')?.errors?.notEquivalent"
+         class="alert alert-danger">
+      NOT EQUALs
+    </div>
   </div>
-  Minimum eight characters, at least one letter and one number <br>
-  <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">
+  <button class="btn btn-success" [disabled]="!userForm.valid">
     Register
   </button>
 </form>

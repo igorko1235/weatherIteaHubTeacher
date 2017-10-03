@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(err => {
         this.data.toggleLoading(false);
-        console.log('Something went wrong:', err.message);
+        alert(err.message);
       });
   }
 

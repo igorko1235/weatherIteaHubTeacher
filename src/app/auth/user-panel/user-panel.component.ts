@@ -10,14 +10,14 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-  list: FirebaseListObservable <any []>;
+  list$: FirebaseListObservable <any []>;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public db: AngularFireDatabase,
+    private db: AngularFireDatabase,
     public authService: AuthService) {}
   ngOnInit() {
-    this.list = this.db.list('cities');
+    this.list$ = this.db.list('cities');
   }
   logout() {
     localStorage.removeItem('user');
