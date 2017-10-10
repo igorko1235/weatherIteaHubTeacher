@@ -1,15 +1,20 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {WeatherList} from '../../models/weather-list';
 import {Subscription} from 'rxjs/Subscription';
+import {ForecastItemComponent} from "./forecast-item/forecast-item.component";
 
 @Component({
   selector: 'app-forecast',
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.css'],
 })
-export class ForecastComponent implements OnInit, OnDestroy {
+export class ForecastComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() cityId: number;
+  @ViewChild('item') item: ForecastItemComponent;
+  get getItem () {
+    return this.item;
+  }
   public res: WeatherList;
   private subscriptions: Subscription [] = [];
 
@@ -18,10 +23,26 @@ export class ForecastComponent implements OnInit, OnDestroy {
   handlePositions(pos: Position) {
     const forecastByPos = this.dataService.getForecastByPositions(pos).subscribe(res => {
       this.res = res;
+      // setTimeout(() => {
+      //   this.getItem.myCustomEvent.subscribe((next) => {
+      //     console.log(next);
+      //   });
+      //   let i = 0;
+      //   setInterval(() => {
+      //     i += 1;
+      //     this.getItem.myCustomEvent.next(i);
+      //   }, 1000);
+      //   this.getItem.myCustomEvent.next(12345343545654);
+      // }, 2000);
     });
     this.subscriptions.push(forecastByPos);
   }
+  ngAfterViewInit() {
+  }
 
+  handler(event) {
+    console.log(event);
+  }
   ngOnInit() {
     if (!this.cityId) {
       if (this.dataService.currentPosition) {

@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'about/:id',
-    component: AboutComponent
+    component: AboutComponent,
   },
   {
     path: 'not_found',

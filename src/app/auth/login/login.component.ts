@@ -3,6 +3,7 @@ import {AuthService} from '../auth.service';
 import {UserForm} from '../user-form';
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
+import {ConfigService} from "../../config.service";
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private cfg: ConfigService,
     private route: ActivatedRoute,
     private data: DataService,
     public authService: AuthService) {}
 
   ngOnInit() {
+    console.log(ConfigService.counter);
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['../user-panel'], {
         relativeTo: this.route

@@ -1,18 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DataService} from "../../services/data.service";
-import {environment} from "../../../environments/environment";
-import {Subscription} from "rxjs/Subscription";
-import {WeatherListItem} from "../../models/weatherListItem";
-import {fadeInOut, flyInOut, flyInOutKEY} from "../../animations";
+import {DataService} from '../../services/data.service';
+import {environment} from '../../../environments/environment';
+import {Subscription} from 'rxjs/Subscription';
+import {WeatherListItem} from '../../models/weatherListItem';
 
 @Component({
   selector: 'app-today-weather',
   templateUrl: './today-weather.component.html',
-  styleUrls: ['./today-weather.component.css'],
-  animations: [
-    flyInOut(),
-    fadeInOut(2, true),
-    flyInOutKEY()]
+  styleUrls: ['./today-weather.component.css']
 })
 export class TodayWeatherComponent implements OnInit, OnDestroy {
   isShow = true;

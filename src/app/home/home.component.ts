@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {TodayWeatherComponent} from "./today-weather/today-weather.component";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +9,5 @@ export class HomeComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log();
   }
 }

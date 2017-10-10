@@ -13,7 +13,8 @@ import { TodayWeatherComponent } from './home/today-weather/today-weather.compon
 import { LoaderComponent } from './loader/loader.component';
 import { SuggestionComponent } from './home/autocomplete/suggestion/suggestion.component';
 import { SharedModule } from './shared/shared.module';
-import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ConfigService} from "./config.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
     AppRoutingModule
   ],
   providers: [
-    DataService
+    DataService, ConfigService
   ],
   bootstrap: [AppComponent]
 })

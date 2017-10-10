@@ -1,18 +1,16 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {WeatherListItem} from '../../../models/weatherListItem';
-import {ANIMATIONS_STATES, fadeInOut, scaleUp} from '../../../animations';
+import {ANIMATIONS_STATES} from "../../../animations";
 
 @Component({
   selector: 'app-forecast-item',
   templateUrl: './forecast-item.component.html',
-  styleUrls: ['./forecast-item.component.css'],
-  animations: [
-    scaleUp(500, 1, 1.2)
-  ]
+  styleUrls: ['./forecast-item.component.css']
 })
 export class ForecastItemComponent {
   public state = ANIMATIONS_STATES.INACTIVE;
   @Input() weather: WeatherListItem;
+  @Output() myCustomEvent: EventEmitter <number> = new EventEmitter();
   constructor() {}
   start(){
     this.state = ANIMATIONS_STATES.INACTIVE;

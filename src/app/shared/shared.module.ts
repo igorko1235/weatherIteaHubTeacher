@@ -12,6 +12,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import { ModalComponent } from './modal/modal.component';
 
 const FIREBASE_CONFIG = {
   apiKey: 'AIzaSyBYWNdlErPkBY7UhzcikVdyT0iSaQQ9wGE',
@@ -35,7 +36,8 @@ const FIREBASE_CONFIG = {
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ const FIREBASE_CONFIG = {
     ForecastComponent,
     DelayDirective,
     ImagePipe,
-    TemperaturePipe
+    TemperaturePipe,
+    ModalComponent
   ]
 })
 export class SharedModule { }

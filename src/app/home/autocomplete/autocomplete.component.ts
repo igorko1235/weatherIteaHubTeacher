@@ -5,7 +5,6 @@ import {Subscription} from 'rxjs/Subscription';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-import {fadeInOut} from '../../animations';
 
 @Component({
   selector: 'app-autocomplete',
