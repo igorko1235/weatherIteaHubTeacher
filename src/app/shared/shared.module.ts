@@ -5,7 +5,6 @@ import {DelayDirective} from './directives/delay.directive';
 import {ImagePipe} from './pipes/image.pipe';
 import {TemperaturePipe} from './pipes/temperature.pipe';
 import {BootstrapUIModule} from './bootstrapui/bootstrapui.module';
-import {MaterialModule} from './material/material.module';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
@@ -30,7 +29,6 @@ const FIREBASE_CONFIG = {
     ImagePipe,
     TemperaturePipe,
     BootstrapUIModule,
-    MaterialModule,
     AngularFireModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
@@ -41,7 +39,6 @@ const FIREBASE_CONFIG = {
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     BootstrapUIModule,
     FormsModule,
     ReactiveFormsModule,
