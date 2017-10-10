@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-import {Observable} from 'rxjs/Observable';
+import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {AuthService} from '../auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
@@ -10,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-  list$: FirebaseListObservable <any []>;
+  list$: AngularFireList <any []>;
   constructor(
     private router: Router,
     private route: ActivatedRoute,

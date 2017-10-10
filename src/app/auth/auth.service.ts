@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+import {User} from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  user: Observable<firebase.User>;
+  user: Observable<User>;
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
@@ -15,13 +15,13 @@ export class AuthService {
     return !!localStorage.getItem('user');
   }
 
-  signup(email: string, password: string): firebase.Promise<any> {
+  signup(email: string, password: string) {
     return this.firebaseAuth
       .auth
       .createUserWithEmailAndPassword(email, password);
   }
 
-  login(email: string, password: string): firebase.Promise<any> {
+  login(email: string, password: string) {
     return this.firebaseAuth
       .auth
       .signInWithEmailAndPassword(email, password);
