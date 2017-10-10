@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import {AngularFireDatabase} from 'angularfire2/database';
 import {AuthService} from '../auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-user-panel',
@@ -9,14 +10,14 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-  list$: AngularFireList <any []>;
+  list$: Observable <any []>;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private db: AngularFireDatabase,
     public authService: AuthService) {}
   ngOnInit() {
-    this.list$ = this.db.list('cities');
+    this.list$ = this.db.list('cities').stateChanges();
   }
   logout() {
     localStorage.removeItem('user');
