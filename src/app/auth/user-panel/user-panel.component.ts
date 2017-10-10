@@ -10,14 +10,14 @@ import {Observable} from "rxjs/Observable";
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-  list$: Observable <any []>;
+  list$: Observable <any>;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private db: AngularFireDatabase,
     public authService: AuthService) {}
   ngOnInit() {
-    this.list$ = this.db.list('cities').stateChanges();
+    this.list$ = this.db.list('cities').valueChanges();
   }
   logout() {
     localStorage.removeItem('user');
