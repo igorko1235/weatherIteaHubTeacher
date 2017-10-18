@@ -12,14 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import { ModalComponent } from './modal/modal.component';
-
-const FIREBASE_CONFIG = {
-  apiKey: 'AIzaSyBYWNdlErPkBY7UhzcikVdyT0iSaQQ9wGE',
-    authDomain: 'iteahhubbackend.firebaseapp.com',
-    databaseURL: 'https://iteahhubbackend.firebaseio.com/',
-    storageBucket: '.appspot.com',
-    messagingSenderId: '',
-};
+import {environment} from '../../environments/environment';
 
 @NgModule({
   exports: [
@@ -43,7 +36,7 @@ const FIREBASE_CONFIG = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],

@@ -11,7 +11,7 @@ export class AuthService {
     this.user = firebaseAuth.authState;
   }
 
-  isLoggedIn() {
+  isLoggedIn(): boolean {
     return !!localStorage.getItem('user');
   }
 
